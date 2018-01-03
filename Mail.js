@@ -1,14 +1,14 @@
 import { View, Text, Image } from 'react-native';
 import React, { Component } from 'react';
 
-class Alerts extends Component {
+class Mail extends Component {
 
 
 	static navigationOptions = {
-		tabBarLabel: 'Alerts',
+		tabBarLabel: 'Mail',
 		tabBarIcon: ({ tintColor }) => (
 			<Image
-			source={require('./icons8-google-alerts-35.png')}
+			source={require('./icons8-secured-letter-35.png')}
 			style={{ height: 25, width: 25, tintColor: tintColor }}
 			/>
 			)
@@ -16,7 +16,7 @@ class Alerts extends Component {
 	render() {
 	return (
 		<View style={styles.containerStyles}>
-		<Text style={styles.textstyles}> Page under Construction </Text>
+		<Text style={styles.textstyles}> Mails will be received here </Text>
 		</View>
 
 		);
@@ -36,4 +36,4 @@ const styles = {
 	}
 };
 
-export default Alerts;
+export default Mail;

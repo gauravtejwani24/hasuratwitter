@@ -1,7 +1,19 @@
-import { View, TextInput } from 'react-native';
-import React from 'react';
+import { View, TextInput, Image } from 'react-native';
+import React, { Component } from 'react';
 
-const Search = () => {
+class Search extends Component {
+
+	static navigationOptions = {
+		tabBarLabel: 'Search',
+		tabBarIcon: ({ tintColor }) => (
+			<Image
+			source={require('./icons8-find-user-male-35.png')}
+			style={{ height: 25, width: 25, tintColor: tintColor }}
+			/>
+			)
+	}
+
+	render() {
 	return (
 		<View style={styles.containerStyles}>
 		<TextInput style={styles.textstyles} placeholder='Search Twitter' />
@@ -9,7 +21,9 @@ const Search = () => {
         </View>
 
 		);	
-};
+	}	
+}
+
  const styles = {
 	containerStyles: {
 		flex: 1,

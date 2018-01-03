@@ -6,6 +6,7 @@ class Header extends Component {
 render() {
  
 	return (
+		
 		<View style={styles.viewStyles}>
 		
 		<Text style={styles.textStyles}>Twitter</Text>

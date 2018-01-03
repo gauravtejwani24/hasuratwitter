@@ -1,77 +1,47 @@
-import { AppRegistry, TabBarIOS } from 'react-native';
+import { AppRegistry, TabBarIOS, View } from 'react-native';
 import React, { Component } from 'react';
-import { DrawerNavigator } from 'react-navigation';
+import { DrawerNavigator, TabNavigator } from 'react-navigation';
 import Home from './Home';
 import Search from './Search';
 import User from './User';
 import Alerts from './Alerts';
+import Mail from './Mail';
 
-class App extends Component {
+ const myTab = TabNavigator({
+	Home: { screen: Home },
+	Search: { screen: Search },
+	Alerts: { screen: Alerts },
+	
+	Mail: { screen: Mail },
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			selectedTab: 'Home'
-		};
+},
+{
+
+	tabBarOptions: {
+		activeTintColor: 'blue',
+		inactiveTintColor: 'black',
+		labelStyle: {
+			fontSize: 10,
+			padding: 2,
+		}
 	}
 
-	render() {
-		return ( 
-				<TabBarIOS selectedTab={this.state.selectedTab} style={{ flex: 1 }}>
-				<TabBarIOS.Item
-				selected={this.state.selectedTab === 'Home'}
-				title='Home'
-				icon={require('./icons8-home-page-40.png')}
-				onPress={() => {
-					this.setState({
-						selectedTab: 'Home'
-					});
-				}}>
-				<Home />
+	});
 
-				</TabBarIOS.Item>
+ const App = DrawerNavigator({
 
-				<TabBarIOS.Item
-				selected={this.state.selectedTab === 'Search'}
-				title='Search'
-				icon={require('./icons8-find-user-male-35.png')}
-				onPress={() => {
-					this.setState({
-						selectedTab: 'Search'
-					});
-				}}>
-				<Search />
-				</TabBarIOS.Item>
+Home: { screen: myTab },
+User: { screen: User },
 
+},
 
-				<TabBarIOS.Item
-				selected={this.state.selectedTab === 'Alerts'}
-				title='Alerts'
-				icon={require('./icons8-google-alerts-35.png')}
-				onPress={() => {
-					this.setState({
-						selectedTab: 'Alerts'
-					});
-				}}>
-				<Alerts />
-				</TabBarIOS.Item>
+{
+	drawerWidth: 300,
+	contentComponent: User,
+	drawerOpenRoute: 'DrawerOpen',
+	drawerCloseRoute: 'DrawerClose',
+	drawerToggleRoute: 'DrawerToggle',
 
-				<TabBarIOS.Item
-				selected={this.state.selectedTab === 'User'}
-				title='User'
-				icon={require('./icons8-user-male-35.png')}
-				onPress={() => {
-					this.setState({
-						selectedTab: 'User'
-					});
-				}}>
-				<User />
-				</TabBarIOS.Item>
-
-				</TabBarIOS>
-			);
-	}
-}
- 
+});
 
 AppRegistry.registerComponent('Awesome', () => App);

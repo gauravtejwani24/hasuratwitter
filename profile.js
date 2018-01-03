@@ -1,23 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Text,
   View, Image
 } from 'react-native';
 
-class User extends Component {
-
-  static navigationOptions = {
-    tabBarLabel: 'User',
-    tabBarIcon: ({ tintColor }) => (
-      <Image
-      source={require('./icons8-user-male-35.png')}
-      style={{ height: 25, width: 25, tintColor: tintColor }}
-      />
-      )
-  }
+const profile = () => {
 
 	
-    render() {
     return (
       <View style={styles.container}>
         
@@ -51,9 +40,7 @@ class User extends Component {
       </View>
     );
 
-  }
-
-}
+};
 
 const styles = {
   container: {
@@ -65,4 +52,4 @@ const styles = {
  
 };
 	
-export default User;
+export default profile;
